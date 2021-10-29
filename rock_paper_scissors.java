@@ -14,8 +14,9 @@ class Main {
       int PlayerCount;
       int PcCount;
       //se the count variable to zero
+	  PlayerCount = 0;
       PcCount = 0;
-      PlayerCount = 0;
+      
 
     //main game loop
 		while(true) {
@@ -31,7 +32,19 @@ class Main {
       
       //Check if the User wants to exit the game
       if (myMove.equals("q")){
+		//print a new empty line
         System.out.println("");
+		
+		
+		//Check to see if the user has won more games than the user lost, or lost more games than the user won, or if they were equal
+		if( PlayerCount> PcCount){
+			System.out.println("congratulations! You Won more games than you Lost! ");
+		} else if( PlayerCount> PcCount){
+			System.out.println("You Lost more games than you Won :( . ");
+		} else{
+			System.out.println("You are Tied! ");
+		}
+		
         System.out.println("Thanks for Playing!");
         break;
       }
