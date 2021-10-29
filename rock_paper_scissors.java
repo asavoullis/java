@@ -9,6 +9,14 @@ class Main {
 		//Create a new Scanner which i will use to get  the input from the User
 		Scanner in = new Scanner(System.in);
 		
+
+    //initialize a 2 variables to count the score 1 for the user and 1 for the computer
+      int PlayerCount;
+      int PcCount;
+      //se the count variable to zero
+      PcCount = 0;
+      PlayerCount = 0;
+
     //main game loop
 		while(true) {
 
@@ -17,7 +25,7 @@ class Main {
       System.out.println("Enter your move. Type in r for rock, p for paper or s for scissors. If you want to exit the game, type q: ");
       
       //print in the same line 
-      System.out.print("Your move: ");
+      System.out.printf("Your move: ");
       //Initialize the User's move
       String myMove = in.nextLine();
       
@@ -27,12 +35,6 @@ class Main {
         System.out.println("Thanks for Playing!");
         break;
       }
-
-      //initialize a count variable to count the score 
-      //positive = user is winning 
-      int count;
-      //se the count variable to zero
-      count = 0;
       
       // .equals for strings 
       // == for ints
@@ -41,7 +43,7 @@ class Main {
       // if myMove doesn't equal rock/paper/scissors
       if(!myMove.equals("r") && !myMove.equals("s") && !myMove.equals("p")) {
         //print its invlaid
-        System.out.println("Your move isn't valid!");
+        System.out.println("Your Move isn't valid!");
       }else {
       
         //Randomly generate the opponents move (0, 1, 2)
@@ -63,7 +65,7 @@ class Main {
           opponentMove = "s";
         }
         //print the computer's move - using string concatination
-        System.out.println("Opponent move: " + opponentMove);
+        System.out.println("Opponent Move: " + opponentMove);
         
         
         //Calculate if the user / lost / tied
@@ -72,31 +74,31 @@ class Main {
         if( myMove.equals(opponentMove)){
           System.out.println("You Tied!");
 
-          //Print the count and new line 
-          System.out.println("The score is " + count);
+          //Print the scores
+          System.out.println("The Score Player Vs Computer is: " + PlayerCount + "-"+ PcCount +".\n");
+          
         }
         // WIN CONDITIONS by the user
         //if the user's move is rock and the computer's move is scissors 
         //OR if the user's move is scissors and the computer's move is paper 
         //OR if the user's move is paper and the computer's move is rock
         else if((myMove.equals("r") && opponentMove.equals("s")) || (myMove.equals("s") && opponentMove.equals("p")) || (myMove.equals("r") && opponentMove.equals("s"))){
-          //incriment the score
-          count ++;
+          //incriment the score of the player
+          PlayerCount ++;
           //print You Win!
           System.out.println("You Win!");
 
-          //Print the count and new line 
-          System.out.println("The score is " + count);
-          System.out.println("");
-        }else{//decrese the count 
-          count --;
+          //Print the scores
+          System.out.println("The Score Player Vs Computer is: " + PlayerCount + "-"+ PcCount +".\n");
+
+        }else{
+          //Incriment the score of the computer
+          PcCount ++;
           //Print You Lose!
           System.out.println("You Lose!");
 
-          //Print the score and new line
-          System.out.println("The score is " + count);
-          System.out.println("");
-        
+          //Print the scores
+          System.out.println("The Score Player Vs Computer is: " + PlayerCount + "-"+ PcCount +".\n");    
         }
       }
     }
