@@ -9,6 +9,11 @@ class Main {
 	  //create a new Scanner which i will use to get  the input from the User
 		Scanner in = new Scanner(System.in);
 	  
+    //initialize a count variable to count the score 
+    //positive = user is winning 
+    int count;
+    count = 0;
+
 	  //main game loop
 		while(true) {
 			//print a question RPS?
@@ -25,7 +30,12 @@ class Main {
 	
 			//if user's move is the same as the computers
 			if(move.equals(cMove)) {
+        //Print It's a Tie
 				System.out.println("It's a Tie");
+        //prints the score
+        System.out.println("The score is " + count);
+        //print an empty line
+        System.out.println("");
 		
 			// WIN CONDITIONS by the user
 			//if the user's move is rock and the computer's move is scissors 
@@ -33,9 +43,25 @@ class Main {
 			//OR if the user's move is paper and the computer's move is rock
 			}else if 
         ((move.equals("r") && cMove.equals("s")) || (move.equals("s") && cMove.equals("p")) || (move.equals("r") && cMove.equals("s"))){
+        //incriment the score
+        count ++;
+        //print You Win!
 			  System.out.println("You Win!");
+
+        //Print the count and new line
+        System.out.println("The score is " + count);
+        System.out.println("");
+
       } else {
+        //decrese the count 
+        count --;
+        //Print You Lose!
         System.out.println("You Lose!");
+
+        //Print the score and new line
+        System.out.println("The score is " + count);
+        System.out.println("");
+        
       }
     }
   }
